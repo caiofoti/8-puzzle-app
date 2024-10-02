@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-puzzle',
   standalone: true,
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './puzzle.component.html',
   styleUrls: ['./puzzle.component.css']
 })

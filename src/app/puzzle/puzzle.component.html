@@ -1,5 +1,11 @@
-<div *ngFor="let row of puzzle">
+<div class="puzzle">
+  <div *ngFor="let row of puzzle">
     <div *ngFor="let cell of row" class="cell">
       {{ cell }}
     </div>
   </div>
+</div>
+<div class="controls">
+  <button (click)="shufflePuzzle()">Shuffle</button>
+  <button (click)="solvePuzzle()">Solve</button>
+</div>

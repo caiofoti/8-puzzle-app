@@ -16,4 +16,12 @@ export class PuzzleComponent implements OnInit {
       this.puzzle = data.puzzle;
     });
   }
+
+  shufflePuzzle(): void {
+    // Implement shuffle logic here
+  }
+
+  solvePuzzle(): void {
+    // Implement solve logic here
+  }
 }

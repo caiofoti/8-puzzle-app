@@ -1,11 +1,17 @@
-<div class="puzzle">
-  <div *ngFor="let row of puzzle">
-    <div *ngFor="let cell of row" class="cell">
-      {{ cell }}
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="puzzle border rounded p-3 bg-light">
+        <div *ngFor="let row of puzzle" class="d-flex justify-content-center">
+          <div *ngFor="let cell of row" class="cell border m-1 p-3 text-center d-flex align-items-center justify-content-center">
+            {{ cell }}
+          </div>
+        </div>
+      </div>
+      <div class="controls text-center mt-3">
+        <button class="btn btn-primary mx-2" (click)="shufflePuzzle()">Shuffle</button>
+        <button class="btn btn-success mx-2" (click)="solvePuzzle()">Solve</button>
+      </div>
     </div>
   </div>
-</div>
-<div class="controls">
-  <button (click)="shufflePuzzle()">Shuffle</button>
-  <button (click)="solvePuzzle()">Solve</button>
 </div>

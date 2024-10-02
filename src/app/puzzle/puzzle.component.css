@@ -1,32 +1,22 @@
 .puzzle {
-  display: grid;
-  grid-template-columns: repeat(3, 100px);
-  grid-template-rows: repeat(3, 100px);
-  gap: 5px;
-  margin-bottom: 20px;
-}
-
-.cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  background-color: #fff;
-  border: 1px solid #000;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
+    background-color: #f8f9fa;
+  }
+  
+  .cell {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .cell:hover {
+    background-color: #e9ecef;
+  }
+  
+  .cell.empty {
+    background-color: #f8f9fa;
+    cursor: default;
+  }

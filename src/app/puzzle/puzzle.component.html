@@ -1,1 +1,5 @@
-<p>puzzle works!</p>
+<div *ngFor="let row of puzzle">
+    <div *ngFor="let cell of row" class="cell">
+      {{ cell }}
+    </div>
+  </div>

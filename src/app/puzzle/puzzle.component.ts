@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-puzzle',
+  standalone: true,
   templateUrl: './puzzle.component.html',
   styleUrls: ['./puzzle.component.css']
 })

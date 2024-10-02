@@ -1,49 +1,44 @@
+/* Estilos globais */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-  }
-  header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .puzzle-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .puzzle {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    margin-bottom: 20px;
-  }
-  .cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
-    border: 1px solid #000;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  .guide {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  footer {
-    text-align: center;
-    margin-top: auto;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    width: 100%;
-  }/* You can add global styles to this file, and also import other style files */
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+/* Estilos para o cabeçalho */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilos para o contêiner do quebra-cabeça */
+.puzzle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+/* Estilos para o guia */
+.guide {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilos para o rodapé */
+footer {
+  text-align: center;
+  margin-top: auto;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+}

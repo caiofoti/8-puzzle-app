@@ -1,0 +1,11 @@
+<!-- frontend/src/app/components/puzzle/puzzle.component.html -->
+<div class="puzzle">
+  <div *ngFor="let row of puzzle; let rowIndex = index" class="row">
+    <div *ngFor="let cell of row; let colIndex = index" 
+         class="cell" 
+         [class.empty]="cell === ''"
+         (click)="move(rowIndex, colIndex)">
+      {{ cell }}
+    </div>
+  </div>
+</div>

@@ -1,30 +1,62 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+// frontend/8-puzzle-app/src/app/puzzle/puzzle.component.ts
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { PuzzleService } from '../services/puzzle.service';
+
+interface PuzzleResponse {
+  puzzle: string[][];
+}
 
 @Component({
   selector: 'app-puzzle',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   templateUrl: './puzzle.component.html',
   styleUrls: ['./puzzle.component.css']
 })
 export class PuzzleComponent implements OnInit {
-  puzzle: number[][] = [];
+  @Input() puzzle: string[][] = [];
+  emptyPosition: { row: number, col: number } = { row: -1, col: -1 };
 
-  constructor(private http: HttpClient) {}
+  constructor(private puzzleService: PuzzleService) {}
 
-  ngOnInit(): void {
-    this.http.get<{ puzzle: number[][] }>('/api/puzzle').subscribe(data => {
-      this.puzzle = data.puzzle;
-    });
+  ngOnInit() {
+    this.findEmptyPosition();
   }
 
-  shufflePuzzle(): void {
-    // Implement shuffle logic here
+  findEmptyPosition() {
+    for (let row = 0; row < this.puzzle.length; row++) {
+      for (let col = 0; col < this.puzzle[row].length; col++) {
+        if (this.puzzle[row][col] === '') {
+          this.emptyPosition = { row, col };
+          return;
+        }
+      }
+    }
   }
 
-  solvePuzzle(): void {
-    // Implement solve logic here
+  move(row: number, col: number) {
+    if (this.canMove(row, col)) {
+      const direction = this.getMoveDirection(row, col);
+      this.puzzleService.move(direction).subscribe((response: PuzzleResponse) => {
+        this.puzzle = response.puzzle;
+        this.findEmptyPosition();
+      });
+    }
+  }
+
+  canMove(row: number, col: number): boolean {
+    const { row: emptyRow, col: emptyCol } = this.emptyPosition;
+    return (row === emptyRow && Math.abs(col - emptyCol) === 1) ||
+           (col === emptyCol && Math.abs(row - emptyRow) === 1);
+  }
+
+  getMoveDirection(row: number, col: number): string {
+    const { row: emptyRow, col: emptyCol } = this.emptyPosition;
+    if (row === emptyRow) {
+      return col > emptyCol ? 'right' : 'left';
+    } else {
+      return row > emptyRow ? 'down' : 'up';
+    }
   }
 }

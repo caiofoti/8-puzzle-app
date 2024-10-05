@@ -1,3 +1,4 @@
+<!-- frontend/src/app/app.component.html -->
 <header class="text-center py-4 bg-primary text-white">
   <h1 class="display-4">8-Puzzle Game</h1>
   <h2 class="h5">Shuffle and Solve the Puzzle</h2>
@@ -5,7 +6,11 @@
 <div class="container my-5">
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6 puzzle-container shadow-sm p-4 mb-4 bg-white rounded">
-      <app-puzzle></app-puzzle>
+      <app-puzzle [puzzle]="puzzle"></app-puzzle>
+      <div class="text-center mt-4">
+        <button class="btn btn-primary mx-2" (click)="shuffle()">Shuffle</button>
+        <button class="btn btn-success mx-2" (click)="solve()">Solve</button>
+      </div>
     </div>
   </div>
 </div>
@@ -13,5 +18,5 @@
   <p class="lead">Use the empty space to move the tiles and arrange them in order.</p>
 </div>
 <footer class="text-center py-3 bg-dark text-white">
-  <p class="mb-0">&copy; 2023 8PuzzleApp. All rights reserved.</p>
+  <p class="mb-0">&copy; 2024 8PuzzleApp. All rights reserved.</p>
 </footer>
